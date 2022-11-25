@@ -5,12 +5,12 @@ from django.db import models
 
 class Consultas(models.Model):
     codigoConsulta = models.AutoField(primary_key=True)
-    codigoRespuesta= models.ForeignKey("Respuesta", verbose_name=_("int"))
+    codigoRespuesta= models.ForeignKey("Respuesta", verbose_name=("int"))
     nombreCliente = models.CharField(max_length=35)
     consulta = models.CharField(max_length=500)
 
 class Respuesta(models.Model):
-    codigoConsulta = models.AutoField(primary_key=True)
+    codigoConsulta = models.ForeignKey("Consultas", verbose_name=("int"))
     codigoRespuesta = models.AutoField(primary_key=True)
     nombreTecnico = models.CharField(max_length=35)
     respuesta = models.CharField(max_length=500)
