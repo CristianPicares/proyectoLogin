@@ -5,7 +5,7 @@ from django.db import models
 
 class Consultas(models.Model):
     codigoConsulta = models.AutoField(primary_key=True)
-    codigoRespuesta= models.ForeignKey("Respuesta", verbose_name=("int"))
+    codigoRespuesta= models.ForeignKey("Usuario", verbose_name=("int"))
     nombreCliente = models.CharField(max_length=35)
     consulta = models.CharField(max_length=500)
 
