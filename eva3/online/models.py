@@ -5,11 +5,11 @@ from django.db import models
 
 class Consultas(models.Model):
     codigoConsulta = models.AutoField(primary_key=True)
-    codigoRespuesta= models.AutoField(primary_key=True)
+    codigoRespuesta= models.ForeignKey("Respuesta", verbose_name=_("int"))
     nombreCliente = models.CharField(max_length=35)
     consulta = models.CharField(max_length=500)
 
-class Respuseta(models.Model):
+class Respuesta(models.Model):
     codigoConsulta = models.AutoField(primary_key=True)
     codigoRespuesta = models.AutoField(primary_key=True)
     nombreTecnico = models.CharField(max_length=35)
