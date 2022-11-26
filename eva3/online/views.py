@@ -4,13 +4,16 @@ from online.forms import FormConsultas
 from . import forms
 
 # Create your views here.
-def login(request):
-    return render(request, 'login.html')
+def loginPage(request):
+    return render(request, 'loginPage.html')
 
 def listaConsultas(request):
     consultas = Consultas.objects.all()
     data = {'consultas':consultas}
     return render(request, 'listaConsultas.html', data)
+
+def index(request):
+    return render(request,'index.html')
 
 def agregarConsulta(request):
     form = forms.FormConsultas()
