@@ -23,7 +23,7 @@ from online.views import loginPage, listaConsultas, agregarConsulta, index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', index),
+    path('', index),
     path('inicio/', loginPage),
     path('listaConsultas/', listaConsultas),
     path('agregarConsulta/', agregarConsulta),
