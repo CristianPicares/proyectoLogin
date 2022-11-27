@@ -11,7 +11,7 @@ class Consultas(models.Model):
     consulta = models.CharField(max_length=500)
 
 class Respuesta(models.Model):
-    codigoConsulta = models.ForeignKey(Consultas, verbose_name=("int"),on_delete=models.CASCADE)
+    codigoConsulta = models.ForeignKey(Consultas, verbose_name=("Codigo Consulta"),on_delete=models.CASCADE)
     codigoRespuesta = models.AutoField(primary_key=True)
     nombreTecnico = models.CharField(max_length=35)
     respuesta = models.CharField(max_length=500)
