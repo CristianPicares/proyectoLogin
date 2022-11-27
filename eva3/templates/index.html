@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+{% load static%}
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>HTML</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta charset="utf-8">
+    <title>HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -12,7 +14,7 @@
         <ul>
             <li><a href="">Home</a></li>
             <li><a href="">Login</a></li>
-            <li><a href="">Home</a></li>
+            <li><a href="">Ayuda</a></li>
         </ul>
     </div>
   <p>Esta página web es una página HTML válida.</p>
