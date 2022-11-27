@@ -6,12 +6,12 @@ from django.db import models
 
 class Consultas(models.Model):
     codigoConsulta = models.AutoField(primary_key=True)
-    #codigoRespuesta= models.ForeignKey("Usuario", models.DO_NOTHING, verbose_name=("int"))
+    codigoRespuesta= models.ForeignKey("Usuario", verbose_name=("int"))
     nombreCliente = models.CharField(max_length=35)
     consulta = models.CharField(max_length=500)
 
 class Respuesta(models.Model):
-    #codigoConsulta = models.ForeignKey("Consultas", models.DO_NOTHING, verbose_name=("int"))
+    codigoConsulta = models.ForeignKey("Consultas", verbose_name=("int"))
     codigoRespuesta = models.AutoField(primary_key=True)
     nombreTecnico = models.CharField(max_length=35)
     respuesta = models.CharField(max_length=500)
