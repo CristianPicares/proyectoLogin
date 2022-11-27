@@ -18,15 +18,19 @@ from django.contrib.auth.views import logout_then_login
 from django.contrib.auth import login
 from django.contrib import admin
 from django.urls import path
-from online.views import loginPage, listaConsultas, agregarConsulta, index
+from online.views import loginPage, listaConsultas, agregarConsulta, index, ValidarUsuario, pagCliente, pagTecnico, pagAdministrador
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('inicio/', loginPage),
+    path('login/',ValidarUsuario),
     path('listaConsultas/', listaConsultas),
     path('agregarConsulta/', agregarConsulta),
     path('accounts/login/', login,{'template_name':'loginPage.html'}, name = 'login' ),
+    path('paginaTecnicoMaster/', pagTecnico),
+    path('paginaCliente/', pagCliente),
+    path('paginaAdministrador/', pagAdministrador),
     path('logout/', logout_then_login, name = 'logout')
 ]
