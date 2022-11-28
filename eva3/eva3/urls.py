@@ -28,7 +28,7 @@ urlpatterns = [
     path('login/',ValidarUsuario),
     path('listaConsultas/', listaConsultas),
     path('agregarConsulta/', agregarConsulta),
-    path('accounts/login/', login,{'template_name':'loginPage.html'}, name = 'login' ),
+    path('accounts/login/', login, name = 'login' ),
     path('paginaTecnicoMaster/', pagTecnico),
     path('paginaCliente/', pagCliente),
     path('paginaAdministrador/', pagAdministrador),
