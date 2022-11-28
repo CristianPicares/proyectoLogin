@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from online.models import Consultas
 from online.forms import FormConsultas
@@ -10,6 +11,10 @@ from . import forms
 @login_required
 def loginPage(request):
     return render(request, 'loginPage.html')
+
+def salir(request):
+    logout(request)
+    return redirect('/')
 
 def listaConsultas(request):
     consultas = Consultas.objects.all()
@@ -25,18 +30,15 @@ def pagCliente(request):
 def pagTecnico(request):
     return render(request, 'platTecnico.html')
 
-def pagAdministrador(request):
-    return render(request, 'admninistrador.html')
-
 @login_required
 def validarUsuario(request):
     if request.user.is_authenticated:
-        if request.user.groups.name  == "cliente":
-            return HttpResponseRedirect('paginaCliente')
-        elif request.user.groups.name == "administrador":
-            return HttpResponseRedirect('paginaAdministrador')
-        elif request.user.groups.name == "tecnicoMaster":
-            return HttpResponseRedirect('paginaTenicoMaster')
+        if request.user.groups.name  == "Cliente":
+            return redirect('paginaCliente')
+        elif request.user.groups.name == "Administrador":
+            return redirect('paginaAdministrador')
+        elif request.user.groups.name == "TecnicoMaster":
+            return redirect('paginaTenicoMaster')
     return redirect('login')
 
 def agregarConsulta(request):
