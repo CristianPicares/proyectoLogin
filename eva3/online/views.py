@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from online.models import Consultas
 from online.forms import FormConsultas
 from . import forms
 
 # Create your views here.
+@login_required
 def loginPage(request):
     return render(request, 'loginPage.html')
 
@@ -25,16 +28,15 @@ def pagTecnico(request):
 def pagAdministrador(request):
     return render(request, 'admninistrador.html')
 
-def ValidarUsuario(request):
+@login_required
+def validarUsuario(request):
     if request.user.is_authenticated:
-        if request.user.groups.name  == "Cliente":
-            return redirect('paginaCliente/')
-        elif request.user.groups.name == "Administrador":
-            return redirect('paginaAdministrador/')
-        elif request.usser.groups.name == "TecnicoMaster":
-            return redirect('paginaTenicoMaster/')
-        elif request.user.is_admin:
-            return redirect('/admin/')
+        if request.user.groups.name  == "cliente":
+            return HttpResponseRedirect('paginaCliente')
+        elif request.user.groups.name == "administrador":
+            return HttpResponseRedirect('paginaAdministrador')
+        elif request.user.groups.name == "tecnicoMaster":
+            return HttpResponseRedirect('paginaTenicoMaster')
     return redirect('login')
 
 def agregarConsulta(request):
