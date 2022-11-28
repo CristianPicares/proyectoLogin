@@ -3,7 +3,7 @@ from administrador.models import TecnicoMaster, Usuario
 
 # Create your views here.
 def panelAdministrador(request):
-    return render(request, 'panelPrincipal.html')
+    return render(request, 'administrador.html')
 
 def panelListaTecnicos(request):
     tecnicoMaster = TecnicoMaster.objects.all()

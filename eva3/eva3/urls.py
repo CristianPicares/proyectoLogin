@@ -16,18 +16,17 @@ Including another URLconf
 from logging import logMultiprocessing
 from django.contrib import admin
 from django.urls import path, include
-from online.views import listaConsultas, agregarConsulta, index, pagCliente, pagTecnico, pagAdministrador, loginPage, validarUsuario
-
+from online.views import listaConsultas, agregarConsulta, index, pagCliente, pagTecnico, loginPage, validarUsuario
+from administrador.views import panelAdministrador
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    path('inicio/', validarUsuario),
-    path('accounts/profile/', loginPage),
+    path('inicio/', loginPage),
     path('accounts/', include('django.contrib.auth.urls')),
     path('listaConsultas/', listaConsultas),
     path('agregarConsulta/', agregarConsulta),
-    path('accounts/profile/paginaTecnico/', pagTecnico),
-    path('accounts/profile/paginaCliente/', pagCliente),
-    path('accounts/profile/paginaAdministrador/', pagAdministrador),
+    path('inicio/paginaTecnico/', pagTecnico),
+    path('inicio/paginaCliente/', pagCliente),
+    path('inicio/paginaAdministrador/', panelAdministrador),
 ]
