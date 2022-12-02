@@ -6,7 +6,6 @@ from django.db import models
 
 class Consultas(models.Model):
     codigoConsultaClien = models.AutoField(primary_key=True)
-    codigoRespuestaClien = models.CharField(max_length=5, null=True)
     nombreCliente = models.CharField(max_length=35)
     consulta = models.CharField(max_length=500)
 
