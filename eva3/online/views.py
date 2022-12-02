@@ -49,7 +49,25 @@ def agregarConsulta(request):
             form.save()
         return listaConsultas(request)
     data = {'form' : form,
-            'titulo':'AGREGANDO PROYECTO',
-             'boton':'AGREGAR PROYECTO'}
-
+            'titulo':'AGREGANDO CONSULTAS',
+             'boton':'AGREGAR CONSULTAS'}
     return render(request, 'agregarConsulta.html', data)
+
+def eliminarConsultas(request, id):
+    consultas = consultas.objects.get(codigoConsultaClien = codigoConsultaClien)
+    consultas.delete()
+    return redirect('/listarConsultas')
+
+def actualizarConsultas(request, id):
+    consultas = consultas.objects.get(codigoConsultaClien = codigoConsultaClien)
+    form = FormConsultas(instance=consultas)
+    print(request.method+' '+str(codigoConsultaClien))
+    if request.method == 'POST':
+        form = FormConsultas(request.POST, instance=consultas)
+        if form.is_valid():
+            form.save()
+        return index(request)
+    datos = {'form':form,
+             'titulo':'ACTUALIZANDO CONSULTAS',
+             'boton':'ACTUALIZAR CONSULTAS'}
+    return render(request,'agregarConsultas.html',datos)

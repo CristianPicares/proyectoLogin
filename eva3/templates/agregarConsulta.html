@@ -34,7 +34,6 @@
     <div class="alert alert-info display-1 text-center">AGREGAR CONSULTA</div>
     <form method="POST">
         <div class="contenedor">
-
                 {{ form.as_p }}
                 {% csrf_token %}
                 <input type="submit" value="{{ boton }}" class="btn btn-info">

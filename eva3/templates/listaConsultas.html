@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <title>ListProyectos</title>
+</head>
+<body class="index">
+    <nav class="navbar">
+        <label for="" class="brand">
+           <a href=""><img src= "{%static "images/logo3.png" %}"></a>
+        </label>
+
+        <label class="centrado">
+            <a href="">Call Center Gamer</a>
+        </label>
+        <ul>
+            <li><a href=" ">►Home◄</a></li>
+            <li><a href="inicio/">Login •ᴗ• ❤</a></li>
+            <li><a href="">Ayiudaaaa a ʕ•́ᴥ•̀ʔっ♡</a></li>
+            <li><a href="../salir">Salir</a></li>
+        </ul>
+    </nav>
+
+    <div class="alert alert-info display-1 text-center">LISTADO DE CONSULTAS</div>
+    {% if consultas %}
+        <div class="contenedor">
+            <table class="table table-stripped table-inverse table-responsive">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>codigoConsultaClien</th>
+                        <th>nombreCliente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for consultas in consultas %}
+                        <tr>
+                            <th>{{ consultas.codigoConsultaClien }}</th>
+                            <th>{{ consultas.nombreCliente}}</th>
+                            <th><a href='/actualizarConsultas/{{consultas.codigoConsultaClien}}' class='btn btn-success btn-sm'><i class='bi bi-pencil'></i></th>
+                            <th><a href='/eliminarConsultas/{{consultas.codigoConsultaClien}}' class='btn btn-danger btn-sm'><i class='bi bi-trash'></i></th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+
+            </table>
+        {% else %}
+        <div class="alert alert-primary" role="alert">
+                <strong>NO HAY CONSULTAS AGREGADAS</strong>
+        </div>
+        {% endif %}
+
+        <a href="../" class="btn btn-danger">VOLVER</a>
+        <a href="../agregarProyecto" class="btn btn-info float-end">AGREGAR CONSULTA</a>
+        </div>
+</body>
+</html>
