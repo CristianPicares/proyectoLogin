@@ -86,3 +86,16 @@ footer p {
     font-family: 'segoe ui';
     text-align: center;
   }
+
+
+.contenedor {
+
+    background-color: #ccc;
+    position: absolute;
+    height: 150px;
+    width: 200px;
+    left: 50%;
+    top: 50%;
+    margin-top: -100px;
+    margin-left: -150px;
+}

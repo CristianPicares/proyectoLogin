@@ -48,5 +48,8 @@ def agregarConsulta(request):
         if form.is_valid():
             form.save()
         return listaConsultas(request)
-    data = {'form' : form}
+    data = {'form' : form,
+            'titulo':'AGREGANDO PROYECTO',
+             'boton':'AGREGAR PROYECTO'}
+
     return render(request, 'agregarConsulta.html', data)
