@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from administrador.models import TecnicoMaster, Usuario
+from django.contrib.auth import get_user_model
+
 
 # Create your views here.
 def panelAdministrador(request):
-    return render(request, 'administrador.html')
+    user = get_user_model()
+    data = user.objects.all()
+    return render(request, 'administrador.html', data)
 
 def panelListaTecnicos(request):
     tecnicoMaster = TecnicoMaster.objects.all()
