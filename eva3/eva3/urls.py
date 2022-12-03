@@ -16,7 +16,7 @@ Including another URLconf
 from logging import logMultiprocessing
 from django.contrib import admin
 from django.urls import path, include
-from online.views import listaConsultas, agregarConsulta, index, pagCliente, pagTecnico, loginPage, validarUsuario, salir, eliminarConsultas, actualizarConsultas
+from online.views import listaConsultas, agregarConsulta, index, pagCliente, pagTecnico, loginPage, validarUsuario, salir, eliminarConsultas, actualizarConsulta
 from administrador.views import panelAdministrador
 from django.contrib.auth.views import LogoutView
 
@@ -31,7 +31,7 @@ urlpatterns = [
     path('inicio/paginaTecnico/', pagTecnico),
     path('inicio/paginaCliente/', pagCliente),
     path('inicio/paginaAdministrador/', panelAdministrador),
-    path('eliminarProyecto/<int:id>', eliminarConsultas),
-    path('actualizarProyecto/<int:id>', actualizarConsultas),
+    path('eliminarConsultas/<int:id>', eliminarConsultas),
+    path('actualizarConsultas/<int:id>', actualizarConsulta),
     path('Logout/', LogoutView.as_view(template_name='logout.html'), name='Logout'),
 ]
